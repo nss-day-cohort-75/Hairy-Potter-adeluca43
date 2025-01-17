@@ -2,7 +2,7 @@
 import { makePottery } from "./PotteryWheel.js"
 import { firePottery } from "./Kiln.js"
 import { toSellOrNotToSell, usePottery } from "./PotteryCatalog.js";
-
+import { PotteryList } from "./PotteryList.js";
 
 // Make 5 pieces of pottery at the wheel
 let mug = makePottery("Mug", 1, 3);
@@ -28,8 +28,13 @@ toSellOrNotToSell(firedPottery5);
 const potteryForSale = usePottery();
 
 // Invoke the component function that renders the HTML list
+const potteryHTML = PotteryList(); 
+const potteryListElement = document.querySelector(".potteryList");
+potteryListElement.innerHTML = potteryHTML;
 
+/* 31 invokes potterylist function which generates the HTML, returns HTML string as potteryHTML
+32 selects the article element in the DOM with the class PotteryList (serves as the container)
+33 Inserts the potteryHTML into the .potteryList element, rendering the pottery catalog on the webpage*/
 
-
-//step 1 & step 2 checking my work console logs
+//step 1, step 2, & step 3 checking my work console logs
 console.table([firedPottery1, firedPottery2, firedPottery3, firedPottery4, firedPottery5]);
